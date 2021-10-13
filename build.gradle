@@ -1,7 +1,7 @@
 //file:noinspection JCenterRepository
 buildscript {
     ext {
-        springBootVersion='2.1.7.RELEASE'
+        springBootVersion='2.1.9.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -19,6 +19,8 @@ apply plugin: 'io.spring.dependency-management'
 
 group 'com.margin.port'
 version '1.0-SNAPSHOT'
+sourceCompatibility=1.8
+
 
 repositories {
     mavenCentral()
@@ -28,8 +30,4 @@ repositories {
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
-}
-
-test {
-    useJUnitPlatform()
 }
