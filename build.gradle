@@ -21,7 +21,8 @@ apply plugin: 'io.spring.dependency-management'
 
 group 'com.margin.port'
 version '1.0-SNAPSHOT'
-sourceCompatibility=1.8
+// sourceCompatibility=1.8
+sourceCompatibility=11
 
 
 repositories {
