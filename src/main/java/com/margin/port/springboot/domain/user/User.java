@@ -1,5 +1,6 @@
 package com.margin.port.springboot.domain.user;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -27,7 +28,7 @@ public class User {
     @Column(nullable = false)
     private Role role;
 
-
+    @Builder
     public User(String name, String email, String picture, Role role) {
         this.name = name;
         this.email = email;
