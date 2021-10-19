@@ -24,19 +24,19 @@ public class OAuthAttributes {
         this.picture = picture;
     }
 
-    public static OAuthAttributes of(String registrationId, String userNameAttributes, Map<String, Object> attributes){
+    public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes){
 
-        return ofGoogle(userNameAttributes, attributes);
+        return ofGoogle(userNameAttributeName, attributes);
     }
 
-    private static OAuthAttributes ofGoogle(String userNameAttributes, Map<String, Object> attributes){
+    private static OAuthAttributes ofGoogle(String userNameAttributeName, Map<String, Object> attributes){
 
         return OAuthAttributes.builder()
-                .name((String)attributes.get("name"))
+                .name((String) attributes.get("name"))
                 .email((String) attributes.get("email"))
                 .picture((String) attributes.get("picture"))
                 .attributes(attributes)
-                .nameAttributeKey(userNameAttributes)
+                .nameAttributeKey(userNameAttributeName)
                 .build();
     }
 
