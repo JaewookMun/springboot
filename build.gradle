@@ -45,4 +45,7 @@ dependencies {
 
     // Oauth dependency
     implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
+
+    // for Session repository
+    implementation('org.springframework.session:spring-session-jdbc')
 }
