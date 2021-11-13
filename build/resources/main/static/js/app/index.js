@@ -21,7 +21,7 @@ var main={
         };
 
         $.ajax({
-            type: 'POST',
+            type: 'post',
             url: '/api/v1/posts',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
@@ -29,7 +29,7 @@ var main={
         }).done(function(){
             alert('글이 등록되었습니다.');
             window.location.href='/';
-        }).fail(function(){
+        }).fail(function(error){
             alert(JSON.stringify(error));
         });
     },
