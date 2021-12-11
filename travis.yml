@@ -1,0 +1,41 @@
+language: java
+jdk:
+  - openjdk8
+
+branches:
+  only:
+    - main
+
+before_install:
+  - chmod +x ./gradlew
+
+
+# Travis CI 서버의 Home
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.gradle'
+
+script: "./gradlew clean build"
+
+before_deploy:
+  - zip -r springboot *
+  - mkdir -p deploy
+  - mv springboot.zip deploy/springboot.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY  # Travis에 설정
+    secret_access_key: $A-container  # S3 버킷
+    region: ap-norWS_SECRET_KEY  # Travis에 설정
+    bucket: deploytheast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy
+    wait-until-deployed: true
+
+# CI 실행 완료 시 메일로 알람
+notifications:
+  email:
+    recipients:
+      - mun1103.dev@gmail.com
