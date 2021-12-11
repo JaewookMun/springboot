@@ -26,9 +26,9 @@ before_deploy:
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY  # Travis에 설정
-    secret_access_key: $A-container  # S3 버킷
-    region: ap-norWS_SECRET_KEY  # Travis에 설정
-    bucket: deploytheast-2
+    secret_access_key: $AWS_SECRET_KEY  # S3 버킷
+    region: ap-northeast-2  # Travis에 설정
+    bucket: deploy-container
     skip_cleanup: true
     acl: private
     local_dir: deploy
